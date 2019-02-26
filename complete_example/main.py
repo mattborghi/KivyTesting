@@ -1,36 +1,44 @@
 from kivy.app import App
-
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
-from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.screenmanager import ScreenManager, Screen
 
-# See https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html
+# Create both screens. Please note the root.manager.current: this is how
+# you can control the ScreenManager from kv. Each screen has by default a
+# property manager that gives you the instance of the ScreenManager used.
+Builder.load_string("""
+<MenuScreen>:
+    BoxLayout:
+        Button:
+            text: 'Goto settings'
+            on_press: root.manager.current = 'settings'
+        Button:
+            text: 'Quit'
 
-            
-class MainScreen(FloatLayout):
-    def __init__(self, **kwargs):
-        super(MyW, self).__init__(**kwargs)
-        
-            s = Screen()
-            s.add_widget(Label(text=l))
-            self.ids.sm.add_widget(s)
-            self.ids.buttons.add_widget()
+<SettingsScreen>:
+    BoxLayout:
+        Button:
+            text: 'My settings button'
+        Button:
+            text: 'Back to menu'
+            on_press: root.manager.current = 'menu'
+""")
 
-class AnotherScreen(ScreenManagement):
+# Declare both screens
+class MenuScreen(Screen):
     pass
 
-class ScreenManagement(ScreenManager):
+class SettingsScreen(Screen):
     pass
 
+# Create the screen manager
+sm = ScreenManager()
+sm.add_widget(MenuScreen(name='menu'))
+sm.add_widget(SettingsScreen(name='settings'))
 
-presentation = Builder.load_file("window.kv")
+class TestApp(App):
 
-class MainApp(App):
-    
     def build(self):
-        return presentation
+        return sm
 
-if __name__ == "__main__":
-    MainApp().run()
-        
-    
+if __name__ == '__main__':
+    TestApp().run()

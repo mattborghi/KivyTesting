@@ -1,7 +1,21 @@
 # File name: drawingspace.kv
+#:import drawingspace drawingspace
 <DrawingSpace@RelativeLayout>: # Drawing space is a subclass of relative layout
-	Label:
+	#Label:
 	# Kivy markup styles the text of the label class in a similar manner to xml based languages, i.e. HTML.
-		markup: True
-		text: '[size=32px][color=#3e6643]The[/color] [sub]Comic[/sub] [i][b]Creator[/b][/i][/size]'
+		#markup: True
+		#text: '[size=32px][color=#3e6643]The[/color] [sub]Comic[/sub] [i][b]Creator[/b][/i][/size]'
 		# The complete list and description is here: https://kivy.org/doc/stable/api-kivy.uix.label.html
+	#StickMan:
+		#pos_hint: {'center_x':.5,'center_y':.5}
+		#canvas.before:
+			#Translate:
+				#xy: -self.width/2, -self.height/2
+			#Scale:
+				#xyz: 2,2,0
+	#StickMan:
+	#canvas.before:
+	# Added border to canvas.before
+	#	Line:
+	#		rectangle: 0, 0, self.width - 4,self.height - 4
+	StickMan:

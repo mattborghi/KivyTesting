@@ -1,8 +1,11 @@
  # File name: statusbar.kv
-<StatusBar@BoxLayout>:
+ #:import statusbar statusbar
+<StatusBar>:
 # Status Bar and general options are similar, both are inherited from box layout class but this one organizes labels instead of buttons.
+	msg_label: _msg_label
 	orientation: 'horizontal'
 	Label:
-		text: 'Total Figures: ?'
+		text: 'Total Figures: ' + str(root.counter)
 	Label:
+		id: _msg_label
 		text: "Kivy started"

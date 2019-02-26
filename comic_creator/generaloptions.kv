@@ -1,15 +1,35 @@
 # File name: generaloptions.kv
-<GeneralOptions@BoxLayout>:
+#<GeneralOptions@BoxLayout>:
+#	orientation: 'horizontal'
+#	padding: 2
+#	Button:
+#		text: 'Clear'
+#	Button:
+#		text: 'Remove'
+#	ToggleButton: # Here we declared a ToogleButton and it is not affected by the previous ToolButton declaration in toolbox.kv
+#		# Also Group and Gestures are independent of each other because we didnt set them to the same group.
+#		text: 'Group'
+#	Button:
+#		text: 'Color'
+#	ToggleButton:
+#		text: 'Gestures'
+# File name: generaloptions.kv
+#:import generaloptions generaloptions
+<GeneralOptions>:
 	orientation: 'horizontal'
 	padding: 2
 	Button:
 		text: 'Clear'
+		on_press: root.clear(*args)
 	Button:
 		text: 'Remove'
-	ToggleButton: # Here we declared a ToogleButton and it is not affected by the previous ToolButton declaration in toolbox.kv
-		# Also Group and Gestures are independent of each other because we didnt set them to the same group.
+		on_release: root.remove(*args)
+	ToggleButton:
 		text: 'Group'
+		on_state: root.group(*args)
 	Button:
 		text: 'Color'
+		on_press: root.color(*args)
 	ToggleButton:
 		text: 'Gestures'
+		on_state: root.gestures(*args)

@@ -1,15 +1,45 @@
 # File name: toolbox.kv
-<ToolButton@ToggleButton>: # We define a ToolButton class that defines the size of the drawing tools
+#:import toolbox toolbox
+<ToolButton>: # We define a ToolButton class that defines the size of the drawing tools
+# We removed the @ToggleButton because we added it in toolbox.py
 	size_hint: None, None
 	size: 48,48
 	group: 'tool' # Assigning the buttons to the same ToggleButton group property achieves that only one of them is clicked at a time
+	canvas:
+		PushMatrix:
+		Translate:
+			xy: self.x,self.y
+	canvas.after:
+		PopMatrix:
 
 <ToolBox@GridLayout>: # ToolBox as a subclass of GridLayout as declared before.
 	cols: 2
 	padding: 2
-	ToolButton: # And create an instance of ToolButton
-		text: 'O'
-	ToolButton:
-		text: '/'
-	ToolButton:
-		text: '?'
+	tool_circle: _tool_circle
+	tool_line: _tool_line
+	tool_stickman: _tool_stickman
+	#ToolButton: # And create an instance of ToolButton
+	#	canvas:
+	#		Line:
+	#			circle: 24,24,14
+	ToolCircle:
+		id:	_tool_circle
+		canvas:
+			Line:
+				circle: 24,24,14
+	#ToolButton:
+	#	canvas:
+	#		Line:
+	#			points: 10,10,38,38
+	ToolLine:
+		id: _tool_line
+		canvas:
+			Line:
+				points: 10,10,38,38
+	#ToolButton:
+	#	StickMan:
+	#		pos_hint: {'center_x':.5,'center_y':.5}
+	ToolStickman:
+		id: _tool_stickman
+		StickMan:
+			pos_hint: {'center_x':.5,'center_y':.5}
