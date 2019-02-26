@@ -1,0 +1,27 @@
+# Define a widget
+<MyW>:
+	# The label
+	Label:
+		id: label1
+		# We specify the position of the widgets in other to avoid overlap between them
+		pos: 300,200
+		# The label starts with this text
+		text: 'Hello'
+	# The button
+	Button:
+		id: button1
+		pos: 200,300
+		size: 300,50
+		# The button label
+		text: 'Hello'
+		# If we press the button, we call MyW().my_callback()
+		on_press: root.my_callback()
+	TextInput:
+		id: textinput1
+		pos: 200,400
+		size: 300,50
+		multiline: False
+		# Default text showed in the input text
+		text: 'ddd'
+		# When we write(focus) in the input text, the label is changed according to MyW().my_callback1() 
+		on_focus: root.my_callback1(self.text)

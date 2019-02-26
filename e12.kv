@@ -1,0 +1,47 @@
+<MyW>:
+	# Add the action bar to the root widget
+	ActionBar:
+		# Location of the bar on the screen
+		pos_hint: {'top':1}
+		# Description of the elements in the bar
+		ActionView:
+			use_separator: True
+			ActionPrevious:
+				title: 'Action Bar'
+				# Previous button. Help us to return to the last screen of the app
+				with_previous: False
+			ActionOverflow:
+			# Add a button with the floopy.png icon
+			ActionButton:
+				text: 'Btn0'
+				icon: 'floppy.png'
+			# Add three more buttons
+			ActionButton:
+				text: 'Btn1'
+			ActionButton:
+				text: 'Btn2'
+			ActionButton:
+				text: 'Btn3'
+			ActionButton:
+				text: 'Btn4'
+			# Add three child buttons to ActionGroup
+			ActionGroup:
+				text: 'Group1'
+				ActionButton:
+					text: 'Btn5'
+				ActionButton:
+					text: 'Btn6'
+				ActionButton:
+					text: 'Btn7'
+
+<MyW1>:
+	Button:
+		id: label1
+		size_hint: .2, .2
+		pos_hint: {'center_x':.5, 'center_y': .5}
+		text: 'B1'
+	Button:
+		id: label2
+		size_hint: .1, .1
+		pos_hint: {'center_x':.1, 'center_y': .1}
+		text: 'B2'

@@ -1,0 +1,30 @@
+<CustomDropDown>:
+
+    Button:
+        id: btn
+        text: 'Input File'
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        size_hint_y: None
+        height: 35
+
+    DropDown:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+
+        Button:
+            text: 'First Item'
+            size_hint_y: None
+            height: 35
+            on_release: dropdown.select('First Item')
+
+        Label:
+            text: 'Second Item'
+            size_hint_y: None
+            height: 35
+
+        Button:
+            text: 'Third Item'
+            size_hint_y: None
+            height: 35
+            on_release: dropdown.select('Third Item')
