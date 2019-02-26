@@ -1,0 +1,15 @@
+# File name: toolbox.kv
+<ToolButton@ToggleButton>: # We define a ToolButton class that defines the size of the drawing tools
+	size_hint: None, None
+	size: 48,48
+	group: 'tool' # Assigning the buttons to the same ToggleButton group property achieves that only one of them is clicked at a time
+
+<ToolBox@GridLayout>: # ToolBox as a subclass of GridLayout as declared before.
+	cols: 2
+	padding: 2
+	ToolButton: # And create an instance of ToolButton
+		text: 'O'
+	ToolButton:
+		text: '/'
+	ToolButton:
+		text: '?'

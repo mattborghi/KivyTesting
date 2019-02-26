@@ -1,0 +1,15 @@
+# File name: generaloptions.kv
+<GeneralOptions@BoxLayout>:
+	orientation: 'horizontal'
+	padding: 2
+	Button:
+		text: 'Clear'
+	Button:
+		text: 'Remove'
+	ToggleButton: # Here we declared a ToogleButton and it is not affected by the previous ToolButton declaration in toolbox.kv
+		# Also Group and Gestures are independent of each other because we didnt set them to the same group.
+		text: 'Group'
+	Button:
+		text: 'Color'
+	ToggleButton:
+		text: 'Gestures'

@@ -1,0 +1,33 @@
+ # File name: comiccreator.kv
+<ComicCreator>:
+# Three Anchor layout instances
+	AnchorLayout: # This is the toolbox
+		anchor_x: 'left'
+		anchor_y: 'top'
+		ToolBox:
+			id: _tool_box
+			size_hint: None, None
+			width: 100
+	AnchorLayout: # This is the drawing space
+		anchor_x: 'right'
+		anchor_y: 'top'
+		DrawingSpace:
+			size_hint: None, None
+			# The drawing space uses the ids to set its width and height from the widgets.
+			# ROOT refers to the screen.
+			width: root.width - _tool_box.width
+			height: root.height - _general_options.height - _status_bar.height
+	AnchorLayout: 
+		anchor_x: 'center'
+		anchor_y: 'bottom'
+		# The box layout instance that organizes general options and the status bar
+		BoxLayout: # General options layout
+			orientation: 'vertical'
+			GeneralOptions:
+				id: _general_options
+				size_hint: 1,None
+				height: 48
+			StatusBar: # This is the status bar
+				id: _status_bar
+				size_hint: 1,None
+				height: 24
