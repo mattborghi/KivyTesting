@@ -22,7 +22,7 @@ class GeneralOptions(BoxLayout):
 			self.unselect_all()
 	
 	def color(self, instance):
-		pass
+		self.comic_creator.manager.current = 'colorscreen'
 	
 	def gestures(self, instance, value):
 		pass
