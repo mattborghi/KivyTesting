@@ -4,7 +4,9 @@ from kivy.uix.floatlayout import FloatLayout
 
 class MyW(FloatLayout):
 	def __init__(self, **kwargs):
-		super(MyW, self).__init__(**kwargs)
+		#super(MyW, self).__init__(**kwargs)
+		# In python 3 we dont need arguments in super.
+		super().__init__(**kwargs)
 		self.add_widget(MyW1())
 
 class MyW1(FloatLayout):
