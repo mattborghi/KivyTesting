@@ -1,0 +1,52 @@
+#:kivy 1.10.0
+
+<Menu>:
+    manager: screen_manager
+    orientation: "vertical"
+    ActionBar:
+        size_hint_y: 0.1
+        ActionView:
+            ActionPrevious:
+            ActionButton:
+                text: "Add"
+                on_release: root.manager.current = "add"
+            ActionButton:
+                text:"Help"
+                on_release: root.manager.current = "help"
+            ActionButton:
+                text: "Credits"
+                on_release: root.manager.current = "credits"
+    Manager:
+        id: screen_manager
+
+<Add>:
+    Label:
+        text: "hello boi"
+        color: 0, 0, 0, 1   # black color text
+
+<Help>:
+    Label:
+        text: "hello world"
+        color: 0, 0, 0, 1   # black color text
+
+<Credits>:
+    Label:
+        text: "goodbye world lol"
+        color: 0, 0, 0, 1   # black color text
+
+<Manager>:
+    addScreen: addScreen
+    helpScreen: helpScreen
+    creditsScreen: creditsScreen
+
+    Add:
+        id: addScreen
+        name: 'add'
+
+    Help:
+        id: helpScreen
+        name: 'help'
+
+    Credits:
+        id: creditsScreen
+        name: 'credits'
